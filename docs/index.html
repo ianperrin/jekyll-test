@@ -4,7 +4,7 @@ title: test
 
 <h1>Repositories</h1>
 
-{% assign repositories = site.github.public_repositories | where_exp: "repo", "repo.fork == 'false' and repo.name contains 'MMM-'" | sort: 'name' %}
+{% assign repositories = site.github.public_repositories | where: "fork", "false" | where_exp: "repo", "repo.name contains 'MMM-'" | sort: 'name' %}
 
 <div id="archives">
 {% for repository in repositories %}
