@@ -1,3 +1,7 @@
+---
+title: test
+---
+
 {% for repository in site.github.public_repositories %}
   * [{{ repository.name }}]({{ repository.html_url }})
 {% endfor %}
@@ -5,12 +9,12 @@
 <div id="archives">
 {% for repository in site.github.public_repositories %}
   <div class="archive-group">
-    <div id="#{{ repository.name | slugify }}"></div>
+    <div id="#{{ repository.name | slugify }}">
    
      <h3 class="repository-head"><a name="{{ repository.name | slugify }}" href="{{ repository.html_url }}">{{ repository.name }}</a></h3>
     
 
-       
+    </div> 
   </div>
 {% endfor %}
 </div>
