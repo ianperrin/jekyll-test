@@ -9,7 +9,7 @@ title: test
 <div id="archives">
 {% for repository in repositories %}
   <div class="archive-group">
-    <div id="#{{ repository.name | slugify }}">
+    <div id="{{ repository.name | slugify }}">
    
       <h3 class="repository-head"><a name="{{ repository.name | slugify }}" href="{{ repository.html_url }}">{{ repository.name }}</a></h3>
       
@@ -18,11 +18,6 @@ title: test
       <p>Stars: {{ repository.stargazers_count }}</p>
       
       <p><a class="releases-link" href="{{ repository.releases_url }}">Releases</a></p>
-      <!--
-      <code style="display: none">
-        {{ repository | jsonify }}
-      </code>
-      -->
     </div> 
   </div>
 {% endfor %}
@@ -36,6 +31,8 @@ title: test
   $(function(){
     $("a.releases-link").each(function(i){
       var releasesHref = $(this).attr('href');
+      releasesHref = releasesHref.replace("{/id}", "");
+      $(this).attr('href') = releasesHref;
       alert(releasesHref) ;
     });
     
