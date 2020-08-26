@@ -1,3 +1,7 @@
+{% for repository in site.github.public_repositories %}
+  * [{{ repository.name }}]({{ repository.html_url }})
+{% endfor %}
+
 ## Welcome to GitHub Pages
 
 You can use the [editor on GitHub](https://github.com/ianperrin/jekyll-test/edit/master/docs/index.md) to maintain and preview the content for your website in Markdown files.
