@@ -12,6 +12,8 @@ title: test
     <div id="#{{ repository.name | slugify }}">
    
       <h3 class="repository-head"><a name="{{ repository.name | slugify }}" href="{{ repository.html_url }}">{{ repository.name }}</a></h3>
+      
+      <p>{{ repository.description }}</p>
       <code>
         {{ repository | jsonify }}
       </code>
