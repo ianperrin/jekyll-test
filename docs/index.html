@@ -11,8 +11,10 @@ title: test
   <div class="archive-group">
     <div id="#{{ repository.name | slugify }}">
    
-     <h3 class="repository-head"><a name="{{ repository.name | slugify }}" href="{{ repository.html_url }}">{{ repository.name }}</a></h3>
-    
+      <h3 class="repository-head"><a name="{{ repository.name | slugify }}" href="{{ repository.html_url }}">{{ repository.name }}</a></h3>
+      <code>
+        {{ repository | jsonify }}
+      </code>
 
     </div> 
   </div>
