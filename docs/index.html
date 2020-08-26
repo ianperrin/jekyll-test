@@ -4,12 +4,10 @@ title: test
 
 <h1>Repositories</h1>
 
-{% for repository in site.github.public_repositories %}
-  * [{{ repository.name }}]({{ repository.html_url }})
-{% endfor %}
+{% assign repositories = site.github.public_repositories | where_exp: "repo", "repo.name contains 'MMM-'" | sort: 'title' %}
 
 <div id="archives">
-{% for repository in site.github.public_repositories %}
+{% for repository in repositories %}
   <div class="archive-group">
     <div id="#{{ repository.name | slugify }}">
    
