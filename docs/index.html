@@ -17,7 +17,7 @@ title: test
       
       <p>Stars: {{ repository.stargazers_count }}</p>
       
-      <p><a href="{{ repository.releases_url | remove: "{/id" | remove: "}" }}">Releases</a></p>
+      <p><a href="{{ repository.releases_url }}">Releases</a></p>
       <!--
       <code style="display: none">
         {{ repository | jsonify }}
@@ -27,6 +27,7 @@ title: test
   </div>
 {% endfor %}
 </div>
-
-
-<a href="https://gist.github.com/dleidert/99a8e6ee3a879a7ed1f160c5dd07c13d">Github Releases</a>
+<ul>
+  <li><a href="https://gist.github.com/dleidert/99a8e6ee3a879a7ed1f160c5dd07c13d">Github Releases</a></li>
+  <li><a href="https://blog.teamtreehouse.com/code-a-simple-github-api-webapp-using-jquery-ajax">jQuery Ajax</a></li>
+</ul>
