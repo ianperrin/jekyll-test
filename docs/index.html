@@ -22,7 +22,7 @@ title: test
   {% assign repositories = site.github.public_repositories | where: "fork", "false" | where_exp: "repo", "repo.name contains 'MMM-'" | sort: 'name' %}
   <ul class="list-unstyled">
   {% for repository in repositories %}
-    <li class="media">
+    <li class="media my-3">
       <img src="https://dummyimage.com/64x64/ffff00/000000.png" class="mr-3" alt="...">
       <div class="media-body" id="{{ repository.name | slugify }}">
         <h5 class="mt-0 mb-1"><a name="{{ repository.name | slugify }}" href="{{ repository.html_url }}">{{ repository.name }}</a><span class="btn btn-secondary btn-sm float-right disabled">{{ repository.stargazers_count }} Stars</span><a class="btn btn-primary btn-releases d-none" href="{{ repository.releases_url }}" target="_blank">Releases</a></h5>
