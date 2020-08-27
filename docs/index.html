@@ -23,7 +23,7 @@ title: test
   <ul class="list-unstyled">
   {% for repository in repositories %}
     <li class="media">
-      <img src="..." class="mr-3" alt="...">
+      <img src="https://dummyimage.com/64x64/ffff00/000000.png" class="mr-3" alt="...">
       <div class="media-body" id="{{ repository.name | slugify }}">
         <h5 class="mt-0 mb-1"><a name="{{ repository.name | slugify }}" href="{{ repository.html_url }}">{{ repository.name }}</a></h5>
 
