@@ -25,9 +25,8 @@ title: test
     <li class="media">
       <img src="https://dummyimage.com/64x64/ffff00/000000.png" class="mr-3" alt="...">
       <div class="media-body" id="{{ repository.name | slugify }}">
-        <h5 class="mt-0 mb-1"><a name="{{ repository.name | slugify }}" href="{{ repository.html_url }}">{{ repository.name }}</a><span class="badge badge-secondary">{{ repository.stargazers_count }} stars</span></h5>
-        <p>{{ repository.description }}</p>
-        <p><a class="btn btn-primary releases-link" href="{{ repository.releases_url }}" target="_blank">Releases</a></p>
+        <h5 class="mt-0 mb-1"><a name="{{ repository.name | slugify }}" href="{{ repository.html_url }}">{{ repository.name }}</a><span class="btn btn-secondary btn-sm float-right disabled">{{ repository.stargazers_count }} Stars</span><a class="btn btn-primary btn-releases d-none" href="{{ repository.releases_url }}" target="_blank">Releases</a></h5>
+        {{ repository.description }}
       </div>
     </li>
   {% endfor %}
@@ -50,7 +49,7 @@ title: test
 <script>
   $(function(){
     
-    $("a.releases-link").each(function(i){
+    $("a.btn-releases").each(function(i){
       
       // Fix releases link
       var anchor = $(this);
@@ -75,7 +74,7 @@ title: test
             downloadUri = release.zipball_url;
           }
           if (downloadUri) {
-            anchor.after('<a class="btn btn-primary" href="'+downloadUri+'" target="_blank" role="button">'+release.tag_name.replace("v", "") + '</a>');
+            anchor.after('<a class="btn btn-primary btn-sm float-right" href="'+downloadUri+'" target="_blank">Download '+release.tag_name.replace("v", "") + '</a>');
           }
         }
       }
