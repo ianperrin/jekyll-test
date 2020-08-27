@@ -19,21 +19,25 @@ title: test
 
 <div class="container" id="archives">
   <h1>Repositories</h1>
-{% assign repositories = site.github.public_repositories | where: "fork", "false" | where_exp: "repo", "repo.name contains 'MMM-'" | sort: 'name' %}
-{% for repository in repositories %}
-  <div class="archive-group">
-    <div id="{{ repository.name | slugify }}">
-   
-      <h3 class="repository-head"><a name="{{ repository.name | slugify }}" href="{{ repository.html_url }}">{{ repository.name }}</a></h3>
-      
-      <p>{{ repository.description }}</p>
-      
-      <p>Stars: {{ repository.stargazers_count }}</p>
-      
-      <p><a class="btn btn-primary releases-link" href="{{ repository.releases_url }}" target="_blank">Releases</a></p>
-    </div> 
-  </div>
-{% endfor %}
+  {% assign repositories = site.github.public_repositories | where: "fork", "false" | where_exp: "repo", "repo.name contains 'MMM-'" | sort: 'name' %}
+  <ul class="list-unstyled">
+  {% for repository in repositories %}
+    <li class="media">
+      <img src="..." class="mr-3" alt="...">
+      <div class="media-body" id="{{ repository.name | slugify }}">
+        <h5 class="mt-0 mb-1"><a name="{{ repository.name | slugify }}" href="{{ repository.html_url }}">{{ repository.name }}</a></h5>
+
+        {{ repository.description }}
+
+        <button type="button" class="btn btn-primary">
+          Stars <span class="badge badge-light">{{ repository.stargazers_count }}</span>
+        </button>
+
+        <p><a class="btn btn-primary releases-link" href="{{ repository.releases_url }}" target="_blank">Releases</a></p>
+      </div>
+    </li>
+  {% endfor %}
+  </ul>
 </div>
 <ul>
   <li><a href="https://gist.github.com/dleidert/99a8e6ee3a879a7ed1f160c5dd07c13d">Github Releases</a></li>
